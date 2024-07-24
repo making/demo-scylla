@@ -1,9 +1,6 @@
 services:
   cassandra:
-    image: 'cassandra:latest'
-    environment:
-    - 'CASSANDRA_DC=dc1'
-    - 'CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch'
+    image: 'scylladb/scylla'
     ports:
     - '9042'
     labels:
