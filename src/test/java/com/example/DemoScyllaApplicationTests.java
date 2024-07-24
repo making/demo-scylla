@@ -1,6 +1,7 @@
 package com.example;
 
 import java.util.List;
+import java.util.Set;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
@@ -148,10 +149,8 @@ class DemoScyllaApplicationTests {
 
 		@Bean
 		public CommandLineRunner clr(CityRepository cityRepository, IdGenerator idGenerator) {
-			return args -> {
-				cityRepository.saveAll(List.of(new City(idGenerator.generateId(), "Tokyo"),
-						new City(idGenerator.generateId(), "Osaka"), new City(idGenerator.generateId(), "Kyoto")));
-			};
+			return args -> cityRepository.saveAll(Set.of(new City(idGenerator.generateId(), "Tokyo"),
+					new City(idGenerator.generateId(), "Osaka"), new City(idGenerator.generateId(), "Kyoto")));
 		}
 
 	}
